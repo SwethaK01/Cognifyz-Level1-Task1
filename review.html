@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Review Page</title>
+    
+</head>
+
+<body>
+
+    <header>
+        <h1>Review Page</h1>
+    </header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="review.html">Reviews</a>
+        <a href="rating.html">Ratings</a>
+    </nav>
+    <section>
+        <h2>User Reviews</h2>
+
+        <div id="userReviewsDisplay"></div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+      
+            var reviewData = JSON.parse(localStorage.getItem('reviewData')) || [];
+
+      
+            var userReviewsDisplay = document.getElementById('userReviewsDisplay');
+            userReviewsDisplay.innerHTML = "<p>User Reviews:</p>";
+
+            if (reviewData.length > 0) {
+                reviewData.forEach(function (data, index) {
+                    var reviewContainer = document.createElement('div');
+                    reviewContainer.classList.add('review-container');
+                    reviewContainer.innerHTML =  data.review +
+                        "<span class='deleteButton' onclick='deleteReview(" + index + ")'>Delete</span></p>";
+                    userReviewsDisplay.appendChild(reviewContainer);
+                });
+            } else {
+                userReviewsDisplay.innerHTML += "<p>No reviews yet.</p>";
+            }
+        });
+
+        
+        function deleteReview(index) {
+
+            var reviewData = JSON.parse(localStorage.getItem('reviewData')) || [];
+
+            reviewData.splice(index, 1);
+
+            localStorage.setItem('reviewData', JSON.stringify(reviewData));
+
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>

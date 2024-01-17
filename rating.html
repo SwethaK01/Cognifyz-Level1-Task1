@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Rating Page</title>
+    
+</head>
+
+<body>
+
+    <header>
+        <h1>Rating Page</h1>
+    </header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="review.html">Reviews</a>
+        <a href="rating.html">Ratings</a>
+    </nav>
+    <section>
+        <h2>Ratings</h2>
+
+    
+        <div id="userRatingsDisplay"></div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+     
+            var reviewData = JSON.parse(localStorage.getItem('reviewData')) || [];
+
+        
+            var userRatingsDisplay = document.getElementById('userRatingsDisplay');
+            userRatingsDisplay.innerHTML = "<p>User Ratings:</p>";
+
+            if (reviewData.length > 0) {
+                reviewData.forEach(function (data) {
+                    var ratingContainer = document.createElement('div');
+                    ratingContainer.classList.add('user-rating');
+                    ratingContainer.innerHTML =   data.rating + "★ ";
+                    userRatingsDisplay.appendChild(ratingContainer);
+                });
+            } else {
+                userRatingsDisplay.innerHTML += "<p>No ratings yet.</p>";
+            }
+        });
+
+        function deleteRating(index) {
+       
+            var Ratingdata = JSON.parse(localStorage.getItem('reviewData')) || [];
+
+        
+            Ratingdata.splice(index, 1);
+
+            localStorage.setItem('Ratingdata', JSON.stringify(Ratingdata));
+
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Webpage</title>
+</head>
+<body>
+    <header>
+        <h1>AI</h1>
+    </header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="review.html">Reviews</a>
+        <a href="rating.html">Ratings</a>
+    </nav>
+    <section>
+        <h2>Replit AI</h2>
+
+        <p>Replit AI is a set of features that use artificial intelligence to help developers code faster and better on Replit, an online IDE.
+            Replit AI includes code completion, code explanation, code editing, code generation, and chat-based assistance. Replit AI is powered by OpenAI’s GPT-4, a large-scale language model that can generate natural and programming language.
+       Replit AI is an alternative to GitHub Copilot, another AI code generator that works on Visual Studio Code.
+        </p>
+        
+           
+        <img src="https://img-blog.csdnimg.cn/19db0d108d254fefa97fd17e4117e3db.png">
+        <br></br>
+        
+       
+
+        <form id="reviewForm">
+            
+            <label for="inputField">What do you think??</label>
+            <br></br>
+            <input type="text" id="inputField" name="inputField" required>
+            <label for="inputField">Give your ratings..</label>
+            <br></br>
+            <div class="star-container">
+           
+                <span class="star" onclick="rate(1)">★</span>
+                <span class="star" onclick="rate(2)">★</span>
+                <span class="star" onclick="rate(3)">★</span>
+                <span class="star" onclick="rate(4)">★</span>
+                <span class="star" onclick="rate(5)">★</span>
+            </div>
+            <br></br>
+            <input type="submit" value="Submit">
+        </form>
+
+
+        
+
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
